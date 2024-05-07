@@ -104,6 +104,7 @@ class OthelloBoard(Board):
         for c in range (0, self.cols):
             for r in range (0, self.rows):
                 if self.is_cell_empty(c, r) and self.is_legal_move(c, r, symbol):
+                    
                     return True
         return False
 
@@ -120,5 +121,11 @@ class OthelloBoard(Board):
         self.flip_pieces(col, row, symbol)
 
 
-
-
+    def total_legal_moves_remaining(self, symbol):
+        list = [] 
+        for c in range (0, self.cols):
+            for r in range (0, self.rows):
+                if self.is_cell_empty(c, r) and self.is_legal_move(c, r, symbol):
+                    list.append((c,r))
+                    
+        return list

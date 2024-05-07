@@ -52,6 +52,8 @@ class GameDriver:
         print("Player 1(", self.p1.symbol, ") move:")
         while True:
             if self.board.has_legal_moves_remaining(current.symbol):
+                print(self.board.total_legal_moves_remaining(current.symbol))
+                
                 cant_move_counter = 0
                 self.process_move(current, opponent)
                 self.board.display()
